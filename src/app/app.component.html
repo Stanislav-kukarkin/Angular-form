@@ -1,9 +1,8 @@
-<form [formGroup]='form' (ngSubmit)='Submit()'>
+<form [formGroup]='form' (ngSubmit)='Submit()' method=POST>
   <div>
     <div><input id="surname" type="text" formControlName="surname" placeholder="Фамилия" required="">
       <div *ngIf="form.get('surname').touched && form.get('surname').invalid">
-        <small *ngIf="form.get('surname').errors.pattern">Не корректная Фамилия, используйте кириллицу</small>
-        <small *ngIf="form.get('surname').errors.minLength">Не корректная Фамилия, слишком длинная</small>
+        <small *ngIf="form.get('surname').errors.pattern">Не корректная Фамилия</small>
       </div>
     </div>
 
@@ -25,7 +24,7 @@
       </div>
     </div>
 
-    <div><select id="city">
+    <div><select id="city" formControlName="city">
         <option>Регион проживания</option>
         <option>Омск</option>
         <option>Москва</option>
@@ -49,4 +48,13 @@
       персональных данных</div>
   </div>
   <button type="Submit" [disabled]="form.invalid || submitted">Отправить форму</button>
+
+  <div id='showModal' name='showModal' class="hide modal">
+    <h1>Успешная отправка анкеты</h1>
+    <button ng-click="showModal = false" type="Submit">Заполнить новую анкету</button>
+  </div>
+
 </form>
+
+
+  

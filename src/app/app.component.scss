@@ -3,3 +3,14 @@ input , button , select {
     border-radius: 50px;
     margin-bottom: 1rem;
 };
+
+.modal{
+  position: relative;
+  z-index: 9999;
+  margin: 0px auto;
+  padding: 20px 30px;
+}
+
+.hide{
+  display: none;
+}
