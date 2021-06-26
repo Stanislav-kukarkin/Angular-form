@@ -1,3 +1,4 @@
+import { identifierModuleUrl } from '@angular/compiler';
 import { Renderer2 } from '@angular/core';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -12,7 +13,7 @@ export class AppComponent {
 
   form: FormGroup
   submitted = false
-  modal = document.querySelector('#showModal')
+  modal = null
 
   constructor(
     private renderer: Renderer2
@@ -32,11 +33,10 @@ export class AppComponent {
       city: new FormControl('')
 
     })
+
+    this.modal = document.querySelector('#WindowModal');
   }
 
-  click (event) {
-    this.renderer.removeClass(event.target, 'hide');
-  }
 
   Submit(){
     if (this.form.invalid) {
@@ -56,8 +56,7 @@ export class AppComponent {
     }
 
     console.log(JSON.stringify(user));
-    //this.modal.classList.remove('hide')
-    this.click(event);
+    this.modal.classList.remove('hide');
  }
 
 

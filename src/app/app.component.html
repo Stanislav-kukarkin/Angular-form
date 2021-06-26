@@ -47,14 +47,15 @@
     <div> <input id="checkbox" type="checkbox" formControlName="checkbox" placeholder="">Согласие на обработку 
       персональных данных</div>
   </div>
-  <button type="Submit" [disabled]="form.invalid || submitted">Отправить форму</button>
+  <button type="Submit"  [disabled]="form.invalid || submitted">Отправить форму</button>
 
-  <div id='showModal' name='showModal' class="hide modal">
+  <div class="modal hide" id="WindowModal">
     <h1>Успешная отправка анкеты</h1>
     <button ng-click="showModal = false" type="Submit">Заполнить новую анкету</button>
   </div>
 
 </form>
+
 
 
   
