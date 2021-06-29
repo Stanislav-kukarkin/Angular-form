@@ -2,7 +2,6 @@ import { identifierModuleUrl } from '@angular/compiler';
 import { Renderer2 } from '@angular/core';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-//import { ServService } from './serv.service';
 
 @Component({
   selector: 'app-root',
@@ -14,10 +13,14 @@ export class AppComponent {
   form: FormGroup
   submitted = false
   modal = null
+  close = null
+  inputs = null
+  select = null
+  checkbox = null
+  phone: string;
 
   constructor(
     private renderer: Renderer2
-    //public serv: ServService
   ) { }
 
   ngOnInit(): void {
@@ -57,6 +60,27 @@ export class AppComponent {
 
     console.log(JSON.stringify(user));
     this.modal.classList.remove('hide');
+ }
+
+ CloseForm(){
+  this.close = document.querySelector('#close_form');
+   this.close.addEventListener('click',()=>{
+    this.modal.classList.add('hide');
+
+    this.inputs = document.querySelectorAll('input');
+    this.select = document.querySelectorAll('select');
+
+
+    for (var i = 0;  i < this.inputs.length; i++) {
+      this.inputs[i].value = '';
+    };
+    for (var i = 0;  i < this.select.length; i++) {
+      this.select[i].value = '';
+    };
+
+
+   })
+
  }
 
 

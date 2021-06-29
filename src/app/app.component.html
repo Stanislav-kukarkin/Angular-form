@@ -32,7 +32,8 @@
         <option>Другой</option>
       </select></div>
 
-    <div> <input id="phone" type="text" formControlName="phone" placeholder="Ваш телефон" required="">
+    <div> <input id="phone" type="text" formControlName="phone" phone autocomplete="off"
+      maxlength="14" [(ngModel)]="phone" placeholder="(___)___-____" required=""><label class="phone__label" for="phone">+7</label>
       <div *ngIf="form.get('phone').touched && form.get('phone').invalid">
         <small *ngIf="form.get('phone').errors.pattern">Не корректный номер телефона</small>
       </div>
@@ -49,12 +50,16 @@
   </div>
   <button type="Submit"  [disabled]="form.invalid || submitted">Отправить форму</button>
 
-  <div class="modal hide" id="WindowModal">
-    <h1>Успешная отправка анкеты</h1>
-    <button ng-click="showModal = false" type="Submit">Заполнить новую анкету</button>
-  </div>
-
 </form>
+
+<!--modal-->
+<form (submit)="CloseForm()" >
+  <div  class="modal hide" id="WindowModal">
+    <h1>Успешная отправка анкеты</h1>
+    <button id="close_form">Заполнить новую анкету</button>
+  </div>
+</form>
+
 
 
 
