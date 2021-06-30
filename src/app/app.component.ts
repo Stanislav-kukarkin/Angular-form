@@ -30,7 +30,7 @@ export class AppComponent {
       name: new FormControl('', [Validators.required, Validators.maxLength(50), Validators.pattern("[А-Яа-яЁё]{1,50}")]),
       fathername: new FormControl('', [Validators.required, Validators.maxLength(50), Validators.pattern("[А-Яа-яЁё]{1,50}")]),
       login: new FormControl('', [Validators.required, Validators.maxLength(20), Validators.pattern("[A-Za-z]{1,20}")]),
-      phone: new FormControl('', [Validators.required, Validators.pattern("[0-9]{10}")]),
+      phone: new FormControl(''),
       email: new FormControl('', [Validators.required, Validators.email]),
       checkbox: new FormControl(''),
       city: new FormControl('')
