@@ -63,7 +63,7 @@ export class AppComponent {
  }
 
  CloseForm(){
-  this.close = document.querySelector('#close_form');
+  this.close = document.getElementById('close_form');
    this.close.addEventListener('click',()=>{
     this.modal.classList.add('hide');
 
@@ -77,8 +77,6 @@ export class AppComponent {
     for (var i = 0;  i < this.select.length; i++) {
       this.select[i].value = '';
     };
-
-
    })
 
  }
